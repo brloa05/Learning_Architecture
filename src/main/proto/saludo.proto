@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "edu.eci.arsw.arquitectura.parte4";
+option java_outer_classname = "SaludoProto";
+
+service SaludoService {
+    rpc Saludar (SaludoRequest) returns (SaludoResponse);
+}
+
+message SaludoRequest {
+    string nombre = 1;
+}
+
+message SaludoResponse {
+    string mensaje = 1;
+}

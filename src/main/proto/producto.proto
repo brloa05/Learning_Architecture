@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "edu.eci.arsw.arquitectura.parte5";
+option java_outer_classname = "ProductoProto";
+
+service ProductoService {
+    rpc GetProducto (ProductoRequest) returns (ProductoResponse);
+}
+
+message ProductoRequest {
+    string productoId = 1;
+}
+
+message ProductoResponse {
+    string productoId = 1;
+    string nombre = 2;
+    double precio = 3;
+}

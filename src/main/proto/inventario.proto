@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "edu.eci.arsw.arquitectura.parte5";
+option java_outer_classname = "InventarioProto";
+
+service InventarioService {
+    rpc ConsultarStock (ConsultaStockRequest) returns (ConsultaStockResponse);
+}
+
+// NOTA: protoc compila TODOS los .proto del proyecto en un mismo namespace
+// global, sin importar su java_package. Por eso este mensaje se llama
+// "ConsultaStockRequest" y no "StockRequest": evita una colisión de nombres
+// si en el futuro otro .proto define "StockRequest".
+message ConsultaStockRequest {
+    string productoId = 1;
+}
+
+message ConsultaStockResponse {
+    string productoId = 1;
+    int32 unidadesDisponibles = 2;
+}
